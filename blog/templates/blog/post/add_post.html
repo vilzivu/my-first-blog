@@ -1,0 +1,74 @@
+{% extends "blog/base.html" %}
+
+{% block title %}ТБ 154 омбр{% endblock %}
+
+{% block content %}
+<style>
+  body { margin: 0; } 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  form {
+    border: 8px;
+    border-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.568);
+  }
+.plll {
+    display:grid;
+    justify-content: center;
+    align-items: center; 
+  }
+  .btn-sh {
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.568);
+  }
+</style>
+
+<div class="container">
+    
+<form method="post" class="card" style="width: 35rem;">
+    <p class="plll display-6" style="text-align: center;">Додати новий запис:</p>
+    {% csrf_token %}
+<div class="input-group mb-2">
+  <div class="form-control">Автор:</div>
+  <div class="form-control">{{ form.author }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="" style="width: 10rem;">Підрозділ:</div>
+  <div style="width: 10rem;">{{ form.pidrozdil }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="" style="width: 10rem;">Маршрут:</div>
+  <div style="width: 10rem;">{{ form.marshrut }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="input-group-text">Склад в/с:</div>
+  <div>{{ form.sostav }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="form-control">Дата виїзду:</div>
+  <div class="form-control">{{ form.data_viezd }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="form-control">Час виїзду:</div>
+  <div class="form-control">{{ form.time_viezd }}</div>
+</div>
+<div class="input-group mb-2">
+  <div class="form-control">Час повернення:</div>
+  <div class="form-control">{{ form.time_back }}</div>
+</div>
+
+    <button type="submit" class="btn btn-success mt-4 btn-sh">Додати</button>
+    <button class="btn btn-success mt-4 btn-sh"> <a style="color: white; text-decoration: none;" href="/">Назад</a></button>
+</form>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <link rel="icon" href="{% static "img/sign.ico" %}" type="image/x-icon">
+  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+  <link href="{% static "css/rwd-table.min.css" %}" rel="stylesheet">
+</head>
+<body class="bg-success text-white">
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

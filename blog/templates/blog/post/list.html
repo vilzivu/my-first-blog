@@ -1,0 +1,70 @@
+{% extends "blog/base.html" %}
+
+{% block title %}ТБ 154 омбр{% endblock %}
+
+{% block content %}
+
+<style>
+  .container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .plll {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  table {
+    border: 8px;
+    border-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.568);
+  }
+  .btn-sh {
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.568);
+  }
+</style>
+
+
+  <p class="plll display-6" style="text-align: center;">Електроний журнал обліку вїзду/виїзду о/с ТБ 154 омбр </p> 
+  <div class="plll">
+    <button class="btn btn-sh btn-success" style="margin-bottom: 30px;">
+    <a style="color: white; text-decoration: none;" href="{% url "blog:add-post" %}">Додати</a>
+    </button>
+  </div>
+<div class="table-responsive">
+  
+  <table  class="table table-small-font table-tighten table-bordered table-striped btn-sh">
+    <tr style="text-align: center;">
+        <td style="font-weight: bold;">№</td>
+        <td style="font-weight: bold;">Підрозділ</td>
+        <td style="font-weight: bold;">Маршрут</td>
+        <td style="font-weight: bold;">Склад</td>
+        <td style="font-weight: bold;">Дата виїзду</td>
+        <td style="font-weight: bold;">Час виїзду</td>
+        <td style="font-weight: bold;">Час повернення</td>
+    </tr>
+ {% for post in posts %}
+    <tr>
+        <td>{{ post.id }}</td>
+        <td>{{ post.pidrozdil }}</td>
+        <td>{{ post.marshrut }}</td>
+        <td>{{ post.sostav}}</td>
+        <td>{{ post.data_viezd|date:"d.m.Y"}}</td>
+        <td>{{ post.time_viezd}}</td>
+        <td>{{ post.time_back}}
+          {% if post.author == user %}
+           <button class="btn btn-sh btn-success btn-sm" type="button" style="margin-left: 10px;"> 
+             <a style="color: white; text-decoration: none;" href= "{% url "blog:post-edit" pk=post.pk %}">...</a>
+           </button>
+          {% endif %}
+        </td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+
+{% endblock %}

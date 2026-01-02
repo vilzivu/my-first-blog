@@ -1,0 +1,13 @@
+/* Styles applied when the screen is in landscape orientation */
+@media (max-width: 600px) {
+    .rotate_list {
+        /* Rotate the entire body content by 90 degrees clockwise */
+        transform: rotate(90deg);
+        /* Adjust the transform origin to ensure consistent positioning */
+        /* Optional: Reposition the content to fit the screen after rotation */
+        left: 100vh; /* Moves the rotated content into the visible area */
+        width: 100vw;
+        height: 100vh;
+    }
+
+}
